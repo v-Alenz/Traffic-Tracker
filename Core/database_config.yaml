@@ -1,0 +1,26 @@
+# database_config.yaml - Traffic Tracker
+
+# Programma scritto durante lo svolgimento del progetto finale per il
+# corso di Multimedia App and Internet of Things dell'Universita' degl Studi di Genova
+
+# File di configurazione per la connessione al database
+
+# Nome del Database
+# Value: string
+database: "IotDatabase"
+
+# Indirizzio del Server
+# Value: string
+server: "127.0.0.1"
+
+# Nome utente
+# Value: string
+user: "root"
+
+# Password
+# Value: string
+passwd: "example"
+
+# Porta
+# Value: unsigned int
+port: 3306

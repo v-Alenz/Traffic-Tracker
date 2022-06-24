@@ -1,0 +1,56 @@
+# compose.yaml: file di configurazione di docker-compose del IotHttpServer 
+# Programma scritto durante lo svolgimento del progetto finale per il 
+# corso di Multimedia App and Internet of Things dell'Universita' degl Studi di Genova
+
+# Copyright (C) 2022  Andrea Valenzano
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+version: '3'
+
+
+services:
+
+  iot_mysql_server:
+    build: ./sql
+    image: iot_mysql_server:dev
+    container_name: iot_database # INDIRIZZO DEL DATABASE! Se lo cambi qui ricordati di cambiarlo anche nel file PHP!
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: example # PASSWORD DEL DATABASE! Se la cambi qui ricordati di cambiarla anche nel file PHP!
+    cap_add:
+      - SYS_NICE
+
+  iot_php_server:
+    build: ./php
+    image: iot_php_server:dev
+    container_name: iot_http
+    volumes:
+      - ./php/php:/var/www/html
+    ports:
+      - 80:80
+    depends_on:
+      - iot_mysql_server
+
+  iot_phpmyadmin:
+    image: phpmyadmin:5-apache
+    container_name: iot_phpmyadmin
+    ports:
+      - 8080:80 # Ho dovuto reindirizzare sulla porta 8080 perche' sulla porta 80 avrebbe creato conflitto con il server PHP
+    environment:
+      - PMA_HOST=iot_database
+    depends_on:
+      - iot_mysql_server

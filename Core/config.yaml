@@ -1,0 +1,93 @@
+# SERVERIOT++ Configuration File
+
+
+# Prompt colors
+# Use 8 colors in program prompt
+# Values: true , false
+prompt_colors: true
+
+# Cameras
+cameras:
+
+  # Cameras config
+  # Values: List of cameras
+  # CAMERAS WILL BE LOADED IN OREDR!
+
+  - camera_1:
+    
+    # Load Camera
+    # if false the loading and configuration of this camera will be skipped
+    # Values: true, false
+    load_camera: true
+
+    # ID
+    # Camera Id that point to the camera in che Database
+    # Values: int >= 0
+    id: 1
+
+    # Latitude
+    # Values: 0 >= float <= 90
+    lat: 43.881697  
+
+    # Longitude
+    # Values: 0 >= float <= 90
+    lng: 7.773613
+
+    # Camera name
+    # The name of the camera to display
+    # Values: string
+    name: "Ceriana"
+
+    # CUDA
+    # enable procesing for nVidia GPUs
+    # Values: true, false
+    cuda: true
+
+    # DEBUG
+    # enable debuf features
+    # Values: true, false
+    debug: false
+
+    # Fps Target
+    # set a target fps for video input
+    # Values: -1(disabled), int > 0
+    fps_target: 20
+
+    # Traffico
+    # Values: int > 0
+    traffico: 6
+
+    # Traffico Intenso
+    # Values: int > 0
+    traffico_intenso: 9
+
+    # Source
+    # File || file descriptor || video stream || video source
+    # Value: stding
+    source: "iot_sample.mp4"
+
+  - camera_2:
+    load_camera: true
+    id: 2
+    lat: 45.17572561777243 
+    lng: 9.654874264972905
+    name: "Casalpusterlengo"
+    cuda: true
+    debug: false
+    fps_target: 20
+    source: "iot_sample1.mp4"
+    traffico: 6
+    traffico_intenso: 9
+
+  - camera_3:
+    load_camera: true
+    id: 3
+    lat: 43.472648548487655
+    lng: 11.146094978601134
+    name: "Poggibonsi"
+    cuda: true
+    debug: false
+    fps_target: 20
+    source: "iot_sample2.mp4"
+    traffico: 6
+    traffico_intenso: 9
