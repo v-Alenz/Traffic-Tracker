@@ -1,3 +1,5 @@
+[![Licence](https://img.shields.io/github/license/v-Alenz/Traffic-Tracker?style=for-the-badge)](./LICENSE)
+
 <h1 style="text-align: center;">Traffic Tracker</h1>
 
 Piccolo sistema Iot per il controllo e la supervisione in tempo reale del traffico stradale
