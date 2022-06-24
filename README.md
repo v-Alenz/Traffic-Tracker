@@ -1,4 +1,4 @@
-[![Licence](https://img.shields.io/github/license/v-Alenz/Traffic-Tracker?style=for-the-badge)](./LICENSE)
+[![Licence](https://img.shields.io/github/license/v-Alenz/Traffic-Tracker?style=for-the-badge&color=pink)](./LICENSE)
 
 <h1 style="text-align: center;">Traffic Tracker</h1>
 
